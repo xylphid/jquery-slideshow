@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../requirements/jQuery.modal/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../requirements/jQuery.touchSwipe/jquery.touchSwipe.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../jquery.slideshow.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="../requirements/jQuery.modal/jquery.modal.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="../jquery.slideshow.css" type="text/css" media="screen" />
+        <style type="text/css">
+        div.single, [class^=gallery] {
+            display:flex;
+        }
+        </style>
+    </head>
+    <body>
+        <!-- Single image automatique -->
+        <div class="single">
+            <a href="image1.jpg" rel="slideshow:open"><img src="thumbs/image1.jpg" /></a>
+        </div>
+
+        <!-- Single image and manually invoke -->
+        <div class="single">
+            <a href="image1.jpg" id="single"><img src="thumbs/image1.jpg" /></a>
+        </div>
+        <script type="text/javascript">
+        $('#single').on('click', function(){
+            $(this).slideshow();
+            return false;
+        });
+        </script>
+
+        <!-- Gallery and manually invoke -->
+        <div id="gallery1">
+            <a href="image1.jpg" class="slide"><img src="thumbs/image1.jpg" /></a>
+            <a href="image2.jpg" class="slide"><img src="thumbs/image2.jpg" /></a>
+            <a href="image3.jpg" class="slide"><img src="thumbs/image3.jpg" /></a>
+            <a href="image4.jpg" class="slide"><img src="thumbs/image4.jpg" /></a>
+        </div>
+        <script type="text/javascript">
+        $('#gallery1 > .slide').on('click', function(){
+            $(this).slideshow();
+            return false;
+        });
+        </script>
+
+        <!-- Gallery and manually invoke with slideshow -->
+        <div id="gallery2">
+            <a href="image1.jpg" class="slide" data-target="slideshow"><img src="thumbs/image1.jpg" /></a>
+            <a href="image2.jpg" class="slide" data-target="slideshow"><img src="thumbs/image2.jpg" /></a>
+            <a href="image3.jpg" class="slide" data-target="slideshow"><img src="thumbs/image3.jpg" /></a>
+            <a href="image4.jpg" class="slide" data-target="slideshow"><img src="thumbs/image4.jpg" /></a>
+        </div>
+        <script type="text/javascript">
+        $('#gallery2 > .slide').on('click', function(){
+            $(this).slideshow();
+            return false;
+        });
+        </script>
+
+        <!-- Single image and manually invoke -->
+        <div id="gallery3">
+            <a href="image1.jpg" id="slide1"><img src="thumbs/image1.jpg" /></a>
+            <a href="image2.jpg" id="slide2"><img src="thumbs/image2.jpg" /></a>
+            <a href="image3.jpg" id="slide3"><img src="thumbs/image3.jpg" /></a>
+        </div>
+        <script type="text/javascript">
+        $('#slide1').on('click', function(){
+            $(this).slideshow({scaling:'fit'});
+            return false;
+        });
+        $('#slide2').on('click', function(){
+            $(this).slideshow({scaling:'fitmax'});
+            return false;
+        });
+        $('#slide3').on('click', function(){
+            $(this).slideshow({scaling:'fill'});
+            return false;
+        });
+        </script>
+    </body>
+</html>
