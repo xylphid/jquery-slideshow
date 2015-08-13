@@ -78,55 +78,61 @@ $('[data-target=slideshow]').on('click', function() {
 ## Fade transition
 
 By default the overlay & window appear instantaneously, but you can enable a fade effect by specifying the `fadeDuration` option.
-
-    $('a.open-slideshow').click(function(event) {
-      $(this).slideshow({
+```js
+$('a.open-slideshow').click(function(event) {
+    $(this).slideshow({
         fadeDuration: 250
-      });
-      return false;
     });
+return false;
+});
+```
 
 This will fade in the overlay and slideshow over 250 milliseconds _simultaneously._ If you want the effect of the overlay appearing _before_ the window, you can specify the `fadeDelay` option. This indicates at what point during the overlay transition the window transition should begin.
 
 So if you wanted the window to fade in when the overlay's was 80% finished:
-
-      $(elm).slideshow({
-        fadeDuration: 250,
-        fadeDelay: 0.80
-      });
+```js
+$(elm).slideshow({
+    fadeDuration: 250,
+    fadeDelay: 0.80
+});
+```
 
 Or, if you wanted the window to fade in a few moments after the overlay transition has completely finished:
-
-      $(elm).slideshow({
-        fadeDuration: 250,
-        fadeDelay: 1.5
-      });
+```js
+$(elm).slideshow({
+    fadeDuration: 250,
+    fadeDelay: 1.5
+});
+```
 
 Fading is the only supported transition. Also, there are no transitions when closing the slideshow.
 
 ## Closing
 
 Because there can be only one slideshow active at a single time, there's no need to select which slideshow to close:
-
-    $.slideshow.close();
+```js
+$.slideshow.close();
+```
 
 Similar to how links can be automatically bound to open slideshows, they can be bound to close modals using `rel="slideshow:close"`:
-
-    <a href="#close" rel="slideshow:close">Close window</a>
+```html
+<a href="#close" rel="slideshow:close">Close window</a>
+```
 
 _(Note that slideshows are removed from the DOM when closed)._
 
 ## Options
 
 These are the supported options and their default values:
-
-    $.slideshow.defaults = {
-      resize: false,                      // Image resize through external url
-      resizePattern: '/{width}/{height}', // Image resize url pattern using window size (http://path/to/image[/resizePattern])
-      scaling: 'fitmax',                  // Scaling type in fit, fitmax, fill
-      showSpinner: true,                  // Enable/disable the spinner during image load.
-      timeOnScreen: 5000                  // Time the image is displayed
-    };
+```js
+$.slideshow.defaults = {
+    resize: false,                      // Image resize through external url
+    resizePattern: '/{width}/{height}', // Image resize url pattern using window size (http://path/to/image[/resizePattern])
+    scaling: 'fitmax',                  // Scaling type in fit, fitmax, fill
+    showSpinner: true,                  // Enable/disable the spinner during image load.
+    timeOnScreen: 5000                  // Time the image is displayed
+};
+```
 
 # License (MIT)
 
